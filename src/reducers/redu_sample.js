@@ -5,7 +5,6 @@ const initialState = {
 }
 
 export const sampleReducer = (state = initialState,action) =>{
-    console.log("action:",action)
     switch(action.type){
         case  SIMPLE_ACTION_TYPES.SIMPLE_ACTION :
             return {

@@ -36,7 +36,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 const mapStateToProps = store => {
-  console.log(store)
   return {
     message : store.sampleReducer.message
   }

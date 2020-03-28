@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import {api_service} from '../service_layer/service-layer'
 
 class Home extends React.PureComponent {
   constructor(props) {
@@ -8,9 +8,8 @@ class Home extends React.PureComponent {
       employee_details: []
     };
   }
-  componentWillMount() {
-  }
-  componentWillReceiveProps(nextProps) {
+  
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.name !== this.state.name) {
       this.setState({});
     }
@@ -21,16 +20,14 @@ class Home extends React.PureComponent {
 
   //example of feching api
   api_fetchProducts = () => {
-    axios.get("http://dummy.restapiexample.com/api/v1/employees").then(res => {
-      console.log("res.data",res.data.data);
+    api_service.get({ endPoint :"/employees"}).then(res => {
       this.setState({
         employee_details: res.data.data
       });
     });
   };
 
-  componentWillUnmount() {
-  }
+ 
 
   render() {
     const {employee_details} = this.state
