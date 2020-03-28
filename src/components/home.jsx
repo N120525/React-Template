@@ -1,6 +1,7 @@
 import React from "react";
 import { Prompt } from "react-router-dom";
 import axios from "axios";
+
 class Home extends React.PureComponent {
   constructor(props) {
     console.log("%cHome constructor", "color:blue");

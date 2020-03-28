@@ -1,8 +1,9 @@
 import React from "react";
+import {connect} from 'react-redux'
+import {simpleAction} from '../actions/act_sample'
 
 class Header extends React.PureComponent {
   constructor(props){
-    console.log('%cHeader constructor','color:blue')
     super(props)
     this.state={}
   }
@@ -17,14 +18,27 @@ class Header extends React.PureComponent {
   componentWillUnmount(){
     console.log('%cHeader unMount','color:blue')
   }
+
   render() {
-    console.log('%cHeader Reder','color:blue')
     return (
       <div>
-          <h1 className="aling_cente">Welcome to Header</h1>
+          <h1 onClick={this.props.simple_action} className="aling_cente">Welcome to Header</h1>
       </div>
     );
   }
 }
 
-export default Header;
+const mapDispatchToProps = dispatch => {
+  return {
+    simple_action: () => dispatch(simpleAction),
+  }
+}
+
+const mapStateToProps = store => {
+  console.log(store)
+  return {
+    message : store.sampleReducer.message
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Header);
