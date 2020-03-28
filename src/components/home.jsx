@@ -1,26 +1,21 @@
 import React from "react";
-import { Prompt } from "react-router-dom";
 import axios from "axios";
 
 class Home extends React.PureComponent {
   constructor(props) {
-    console.log("%cHome constructor", "color:blue");
     super(props);
     this.state = {
       employee_details: []
     };
   }
   componentWillMount() {
-    console.log("%cHome willmount", "color:blue");
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.name !== this.state.name) {
-      console.log("%cHome componentWillReceiveProps", "color:blue");
       this.setState({});
     }
   }
   componentDidMount() {
-    console.log("%cHome componentDidMount", "color:blue");
     this.api_fetchProducts();
   }
 
@@ -35,7 +30,6 @@ class Home extends React.PureComponent {
   };
 
   componentWillUnmount() {
-    console.log("Home WillUnmount");
   }
 
   render() {

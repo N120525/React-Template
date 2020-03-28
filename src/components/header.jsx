@@ -22,7 +22,8 @@ class Header extends React.PureComponent {
   render() {
     return (
       <div>
-          <h1 onClick={this.props.simple_action} className="aling_cente">Welcome to Header</h1>
+          <h1 onClick={this.props.simple_action} className="aling_cente">Click here for message</h1>
+          <p className="aling_cente">Message  : {this.props.message}</p>
       </div>
     );
   }
@@ -30,7 +31,7 @@ class Header extends React.PureComponent {
 
 const mapDispatchToProps = dispatch => {
   return {
-    simple_action: () => dispatch(simpleAction),
+    simple_action: () => dispatch(simpleAction()),
   }
 }
 

@@ -11,7 +11,7 @@ class Routers extends React.Component {
           <Route exact path="/app" component={App} />
           <Route path="/home" component={Home} />
           <Route path="/header" component={Header} />
-          <Redirect to="/app" from="/" />
+          <Redirect to="/" from="/app" />
         </Switch>
     );
   }
